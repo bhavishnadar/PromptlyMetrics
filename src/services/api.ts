@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://promptly-backend-wwdj.onrender.com';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://promptly-backend-wwdj.onrender.com'
+  : 'http://localhost:4200'; // Use proxy in development
 
 export interface UsageStats {
   endpoint: string;
