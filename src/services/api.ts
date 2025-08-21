@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? '' // Use relative URLs in production (same domain)
+  ? 'https://promptly-backend-wwdj.onrender.com'
   : 'http://localhost:4200';
 
 export interface UsageStats {
