@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { apiService, MetricsResponse, UsageStats, DetailedMetricsResponse, DashboardDataResponse } from './services/api';
+import { apiService, MetricsResponse, DetailedMetricsResponse } from './services/api';
 import MetricCard from './components/MetricCard';
 import UsageChart from './components/UsageChart';
 import MetricModal, { MetricType } from './components/MetricModal';
@@ -42,12 +42,6 @@ const App: React.FC = () => {
   }, [selectedDays]);
 
   const metrics = detailedMetrics?.metrics;
-  const successRate = metrics && metrics.total_requests > 0 
-    ? ((metrics.successful_requests / metrics.total_requests) * 100).toFixed(1)
-    : '0';
-  const improvementRate = metrics && metrics.total_improvements > 0 
-    ? ((metrics.successful_improvements / metrics.total_improvements) * 100).toFixed(1)
-    : '0';
 
   const openMetricModal = (metricType: MetricType, title: string) => {
     setModalState({
